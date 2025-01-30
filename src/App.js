@@ -28,6 +28,7 @@ export default function App() {
           <a
             href="https://app.netlify.com/teams/su06fialho/sites"
             target="blank"
+            
           >
             {" "}
             Netlify.{" "}
