@@ -14,14 +14,12 @@ export default function WeatherInfo(props) {
       </ul>
       <div className="row mt-3">
         <div className="col-6">
-          <div className="canvas">
-            <div style={{ display: "flex", alignItems: "center" }}>
-              <div>
-                <WeatherIcon code={props.data.icon} />
-              </div>
-              <div>
-                <WeatherTemperature celsius={props.data.temperature} />
-              </div>
+          <div className="d-inline-flex">
+            <div>
+              <WeatherIcon code={props.data.icon} size={52} />
+            </div>
+            <div>
+              <WeatherTemperature celsius={props.data.temperature} />
             </div>
           </div>
         </div>
