@@ -50,7 +50,7 @@ setLoaded(false);
       </div>
     );
   } else {
-    
+    load();
 
     return null;
   }
