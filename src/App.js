@@ -6,12 +6,12 @@ export default function App() {
   return (
     <div className="App">
       <div className="container">
-        
         <Weather defaultCity="Lisbon" />
         <footer>
           <a
             href="https://github.com/SU06FIALHO/weather-react-app"
             target="blank"
+            rel="noopener noreferrer"
           >
             {" "}
             Open-source
@@ -20,6 +20,7 @@ export default function App() {
           <a
             href="https://github.com/SU06FIALHO?tab=repositories"
             target="blank"
+            rel="noopener noreferrer"
           >
             {" "}
             Susana Fialho{" "}
@@ -28,7 +29,7 @@ export default function App() {
           <a
             href="https://app.netlify.com/teams/su06fialho/sites"
             target="blank"
-            
+            rel="noopener noreferrer"
           >
             {" "}
             Netlify.{" "}
