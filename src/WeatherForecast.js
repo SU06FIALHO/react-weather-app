@@ -1,42 +1,37 @@
-import React { useState } from "react";
-import WeatherIcon from "./WeatherIcon";
+import { useState } from "react";
 import "./WeatherForecast.css";
 import axios from "axios";
+import WeatherForecastDay from "./WeatherForecastDay";
+
 
 export default function WeatherForecast(props) {
   let [loaded, setLoaded] = useState(false);
   let [forecast, setForecast] = useState(null);
 
   function handleResponse(response) {
-  console.log(response.data);
-  setForecast(response.data.daily);
-  setLoaded(true);
-  
-}
+    setForecast(response.data.daily);
+    setLoaded(true);
+    console.log(response.data.daily);
+  }
 
-  if (loaded){
-    
+  if (loaded) {
     return (
-  <div className="WeatherForecast">
-    <div className="row">
-      <div className="col">
-        <WeatherForecastDay data={forecast[0]}/>
+      <div className="WeatherForecast">
+        <div className="row">
+          <div className="col">
+            <WeatherForecastDay data={forecast[0]} />
+          </div>
+        </div>
       </div>
-    </div>
-  </div>
-);
+    );
+  } else {
+    let apiKey = "74ba2ac4o95a095ca8b15001f53d3et4";
+    let latitude = props.coordinates.latitude;
+    let longitude = props.coordinates.longitude;
+    let apiUrl = `https://api.shecodes.io/weather/v1/forecast?lat=${latitude}&lon=${longitude}&key=${apiKey}&units=metric`;
 
-}  else {
-let apiKey = "616b14cbd38253313b3b8852fa77335d";
-let longitude = props.coordinates.longitude;
-let latitude = props.coordinates.latitude;
-let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${latitude}&lon=${longitude}&appid=${apiKey}&units=metric`;
+    axios.get(apiUrl).then(handleResponse);
 
-axios.get(apiUrl).then(handleResponse);
-
-return null;
-
-}
-
-
+    return null;
+  }
 }
